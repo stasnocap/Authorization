@@ -1,0 +1,24 @@
+﻿@model Authorization.Database.Controllers.LoginViewModel
+
+<h1>Login</h1>
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+<form asp-controller="Admin" asp-action="Login" method="post">
+    <div asp-validation-summary="All"></div>
+    <input type="hidden" asp-for="ReturnUrl"/>
+    <span asp-validation-for="ReturnUrl"></span>
+    <div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName"/>
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>

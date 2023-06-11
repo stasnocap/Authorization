@@ -1,0 +1,19 @@
+﻿@using Authorization.FacebookDemo.Controllers
+
+@model ExternalLoginViewModel
+
+<h1>RegisterExternal</h1>
+
+<form asp-controller="Admin" asp-action="RegisterExternal" method="post">
+    <div asp-validation-summary="All"></div>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <span asp-validation-for="ReturnUrl"></span>
+    <div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>

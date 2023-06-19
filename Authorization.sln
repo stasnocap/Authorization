@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization.Basics", "Aut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.Roles", "Authentication.Roles\Authentication.Roles.csproj", "{C28ACA31-922F-4D62-A747-F5AC9818882D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Database", "Authorization.Database\Authorization.Database.csproj", "{4D20094E-BB71-497B-BD1F-237411261B2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization.Database", "Authorization.Database\Authorization.Database.csproj", "{4D20094E-BB71-497B-BD1F-237411261B2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.FacebookDemo", "Authorization.FacebookDemo\Authorization.FacebookDemo.csproj", "{EE6037EE-665D-4836-909E-29B9D27DBDA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization.FacebookDemo", "Authorization.FacebookDemo\Authorization.FacebookDemo.csproj", "{EE6037EE-665D-4836-909E-29B9D27DBDA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

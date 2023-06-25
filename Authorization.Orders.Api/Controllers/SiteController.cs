@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Authorization.Orders.Api.Controllers
 {
@@ -9,6 +10,7 @@ namespace Authorization.Orders.Api.Controllers
             return View();
         }
 
+        [Authorize]
         public string GetSecrets()
         {
             return "Secret string from Orders.Api";

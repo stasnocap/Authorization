@@ -23,13 +23,19 @@ namespace Authorization.IdentityServer
         public static IEnumerable<ApiResource> GetApiResources()
             => new List<ApiResource>
             {
-                new ApiResource("OrdersAPI")
+                new ApiResource(name: "OrdersAPI", displayName: "Orders api")
             };
 
         public static IEnumerable<IdentityResource> GetIdentityResources()
             => new List<IdentityResource>
             {
                 new IdentityResources.OpenId()
+            };
+
+        public static IEnumerable<ApiScope> GetApiScopes()
+            => new List<ApiScope>
+            {
+                new ApiScope("OrdersAPI")
             };
     }
 }

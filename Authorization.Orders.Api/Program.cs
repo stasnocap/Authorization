@@ -1,6 +1,15 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
+    {
+        config.Authority = "https://localhost:10001";
+        config.Audience = "OrdersAPI";
+    });
 
 builder.Services.AddControllersWithViews();
 

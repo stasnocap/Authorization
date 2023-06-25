@@ -22,12 +22,27 @@ namespace Authorization.Users.Api.Controllers
             var authClient = _httpClientFactory.CreateClient();
             var discoveryDocument = await authClient.GetDiscoveryDocumentAsync("https://localhost:10001");
 
+            var tokenResonse = await authClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            {
+                Address = discoveryDocument.TokenEndpoint,
+                ClientId = "client_id",
+                ClientSecret = "client_secret",
+                Scope = "OrdersAPI",
+            });
 
             var ordersClient = _httpClientFactory.CreateClient();
 
-            var message = await ordersClient.GetStringAsync("https://localhost:7284/Site/GetSecrets");
+            ordersClient.SetBearerToken(tokenResonse.AccessToken);
 
-            ViewData["Message"] = message;
+            var getSecretsResponse = await ordersClient.GetAsync("https://localhost:7284/Site/GetSecrets");
+
+            if (!getSecretsResponse.IsSuccessStatusCode)
+            {
+                ViewData["Message"] = getSecretsResponse.StatusCode.ToString();
+                return View();
+            }
+
+            ViewData["Message"] = await getSecretsResponse.Content.ReadAsStringAsync();
 
             return View();
         }

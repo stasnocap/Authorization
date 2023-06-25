@@ -1,5 +1,6 @@
 
 using Authorization.IdentityServer;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddIdentityServer()
     .AddInMemoryClients(Configuration.GetClients())
+    .AddInMemoryApiScopes(Configuration.GetApiScopes())
+    //.AddInMemoryApiResources(Configuration.GetApiResources())
     .AddInMemoryIdentityResources(Configuration.GetIdentityResources())
-    .AddInMemoryApiResources(Configuration.GetApiResources())
     .AddDeveloperSigningCredential();
 
 builder.Services.AddControllersWithViews();
